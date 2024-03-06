@@ -1,24 +1,24 @@
 <header class="cabecalho">
     <nav class="cabecalho__menu">
       <div class="menu__esquerda">
-        <a class="cabecalho__logo">
+        <a class="cabecalho__logo" routerLink="/home">
           <img src="./../../../../assets/images/logo.png" alt="Logo Projeto Asfalto" />
         </a>
   
-        <a class="cabecalho__menu__texto ff-inter desktop mapa" href="#"> Mapa </a>
-        <a class="cabecalho__menu__texto ff-inter desktop cadastro"> Cadastro </a>
+        <a class="cabecalho__menu__texto ff-inter desktop mapa" routerLink="/mapa"> Mapa </a>
+        <a class="cabecalho__menu__texto ff-inter desktop cadastro" routerLink="/cadastrarUsuario"> Cadastro </a>
       </div>
   
       <div class="menu__direita">
-          <button class="botao__login ff-inter desktop">FAZER LOGIN</button>
+          <button class="botao__login ff-inter desktop" (click)="login()">FAZER LOGIN</button>
           <input type="checkbox" id="menu" class="container__botao mobile">
           <label for="menu" class="mobile">
               <img src="./../../../../assets/images/menu-hamburguer.png" alt="Menu Hamburguer" class="menu-hamburguer">
           </label>
           <ul class="lista-menu mobile">
-              <li><a href="#" class="cabecalho__menu__texto ff-inter mapa">Mapa</a></li>
-              <li><a href="#" class="cabecalho__menu__texto ff-inter cadastro">Cadastro</a></li>
-              <li><button class="botao__login ff-inter">FAZER LOGIN</button></li>
+              <li><a href="#" class="cabecalho__menu__texto ff-inter mapa" routerLink="/mapa">Mapa</a></li>
+              <li><a href="#" class="cabecalho__menu__texto ff-inter cadastro" routerLink="/cadastrarUsuario">Cadastro</a></li>
+              <li><button class="botao__login ff-inter" (click)="login()">FAZER LOGIN</button></li>
           </ul>
       </div>
     </nav>

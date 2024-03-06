@@ -1,0 +1,77 @@
+<app-cabecalho [selecionado]="'cadastro'"></app-cabecalho>
+<section class="cadastro-usuario fundo ff-inter">
+    <form [formGroup]="formulario">
+        <div class="mensagem_erro-api " *ngIf="mensagemErro">
+            {{ mensagemErro }}
+        </div>
+        <!-- Campo Nome -->
+        <div class="form__grupo">
+            <label for="nomeCompleto">Nome Completo:</label>
+            <input type="text" class="input__grande" id="nomeCompleto" formControlName="nomeCompleto" 
+            placeholder="Digite o nome!" autocomplete="off">
+            <div class="mensagem__erro" 
+            *ngIf="formulario.get('nomeCompleto')?.errors?.['required'] && formulario.get('nomeCompleto')?.touched">
+                O Nome é obrigatório!
+            </div>
+            <div class="mensagem__erro" 
+            *ngIf="formulario.get('nomeCompleto')?.errors?.['minlength'] && formulario.get('nomeCompleto')?.touched">
+                O Nome precisa ter no mínimo 3 caracteres!
+            </div>
+            <div class="mensagem__erro" 
+            *ngIf="formulario.get('nomeCompleto')?.errors?.['pattern'] && formulario.get('nomeCompleto')?.touched">
+                O Nome tem caracteres inválidos
+            </div>
+        </div>
+
+        <!-- Campo CPF -->
+        <div class="form__grupo">
+            <label for="cpf">CPF:</label>
+            <input type="text" class="input__grande" id="cpf" formControlName="cpf" placeholder="000.000.000-00"
+            mask="000.000.000-00" [dropSpecialCharacters]="false" autocomplete="off">
+            <div class="mensagem__erro" 
+            *ngIf="formulario.get('cpf')?.errors?.['required'] && formulario.get('cpf')?.touched">
+                O CPF é obrigatório!
+            </div>
+            <div class="mensagem__erro" 
+            *ngIf="(formulario.get('cpf')?.errors?.['minlength'] || formulario.get('cpf')?.errors?.['maxlength']) && formulario.get('cpf')?.touched">
+                O CPF é inválido!
+            </div>
+        </div>
+
+        <!-- Campo Email -->
+        <div class="form__grupo">
+            <label for="email">Email:</label>
+            <input type="text" class="input__grande" id="email" formControlName="email" placeholder="Digite o email!" autocomplete="off">
+            <div class="mensagem__erro" *ngIf="formulario.get('email')?.errors?.['required'] && formulario.get('email')?.touched">
+                O Email é obrigatório!
+            </div>
+            <div class="mensagem__erro" 
+            *ngIf="(formulario.get('email')?.errors?.['email'] || formulario.get('email')?.errors?.['pattern']) && formulario.get('email')?.touched">
+                O Email é inválido!
+            </div>
+
+        </div>
+
+        <!-- Campo Senha -->
+        <div class="form__grupo">
+            <label for="senha">Senha:</label>
+            <input type="password" class="input__grande" id="senha" formControlName="senha" placeholder="Digite a senha!" autocomplete="off">
+            <div class="mensagem__erro" *ngIf="formulario.get('senha')?.errors?.['required'] && formulario.get('senha')?.touched">
+                A senha é obrigatória!
+            </div>
+            <div class="mensagem__erro" *ngIf="formulario.get('senha')?.errors?.['minlength'] && formulario.get('senha')?.touched">
+                A senha deve ter no minímo 8 caractéres
+            </div>
+        </div>
+
+        <div class="mensagem_erro-api " *ngIf="mensagemErro">
+            {{ mensagemErro }}
+        </div>
+
+        <div class="acoes">
+            <button (click)="cancelar()" class="botao">Cancelar</button>
+            <button [disabled]="!formulario.valid" (click)="criarUsuario()" [ngClass]="habilitarBotao()">Salvar</button>
+        </div>
+
+    </form>
+</section>
