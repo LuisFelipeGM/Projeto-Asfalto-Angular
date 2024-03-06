@@ -1,0 +1,35 @@
+<app-cabecalho></app-cabecalho>
+<section class="auth-usuario fundo ff-inter">
+    <form [formGroup]="formulario">
+        <div class="form__grupo">
+            <label for="email">Email:</label>
+            <input type="text" class="input__grande" id="email" formControlName="email" placeholder="Digite o email!" autocomplete="off">
+            <div class="mensagem__erro" *ngIf="formulario.get('email')?.errors?.['required'] && formulario.get('email')?.touched">
+                O Email é obrigatório!
+            </div>
+            <div class="mensagem__erro" 
+            *ngIf="(formulario.get('email')?.errors?.['email'] || formulario.get('email')?.errors?.['pattern']) && formulario.get('email')?.touched">
+                O Email está inválido!
+            </div>
+        </div>
+
+        <div class="form__grupo">
+            <label for="senha">Senha:</label>
+            <input type="password" class="input__grande" id="senha" formControlName="senha" placeholder="Digite a senha!" autocomplete="off">
+            <div class="mensagem__erro" *ngIf="formulario.get('senha')?.errors?.['required'] && formulario.get('senha')?.touched">
+                A senha é obrigatória!
+            </div>
+            <div class="mensagem__erro" *ngIf="formulario.get('senha')?.errors?.['minlength'] && formulario.get('senha')?.touched">
+                A senha tem no minímo 8 caractéres
+            </div>
+        </div>
+
+        <div class="acoes">
+            <button [disabled]="!formulario.valid" (click)="logar()" [ngClass]="habilitarBotao()">Entrar</button>
+        </div>
+    </form>
+
+    <div class="crie-conta">
+        <p class="texto">Ainda não tem conta? <a class="cadastro" routerLink="/cadastrarUsuario">Crie uma conta</a></p>
+    </div>
+</section>
