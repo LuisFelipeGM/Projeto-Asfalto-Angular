@@ -10,6 +10,7 @@ import { CadastroUsuarioComponent } from './components/nao-logado/cadastro-usuar
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
+import { LoginComponent } from './components/nao-logado/login/login.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
     RodapeComponent,
     CabecalhoComponent,
     HomeNlComponent,
-    CadastroUsuarioComponent
+    CadastroUsuarioComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

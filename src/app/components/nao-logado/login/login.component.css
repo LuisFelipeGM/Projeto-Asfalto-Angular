@@ -1,0 +1,132 @@
+.fundo{
+    background-color: var(--cor-secundaria);
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.auth-usuario form {
+    background: var(--cor-primaria);
+    border: none;
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    width: 45vw;
+}
+
+.auth-usuario form label {
+    color: var(--branco);
+    font-family: var(--fonte-secundaria);
+    font-weight: 500;
+    font-weight: bold;
+    margin: 0 0 0.5rem 1rem;
+}
+
+.auth-usuario form input {
+    border: none;
+    height: 2rem;
+    padding: 1rem 2rem;
+    border-radius: 20px;
+    margin: 0.3rem;
+    font-size: 1rem;
+}
+
+
+.form__grupo {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    align-self: center;
+}
+
+.input__grande {
+    width: 30vw;
+}
+
+.acoes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 5rem;
+    margin-top: 1rem;
+}
+
+.botao {
+    height: 4rem;
+    width: 12rem;
+    background: var(--vermelho);
+    color: var(--branco);
+    font-size: 1rem;
+    border: none;
+    border-radius: 1rem;
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+
+.botao__desabilitado {
+    height: 4rem;
+    width: 12rem;
+    background-color: var(--cor-secundaria);
+    color: var(--branco);
+    border: none;
+    border-radius: 1rem;
+    font-size: 1rem;
+}
+
+.crie-conta {
+    background: rgb(10, 26, 28, 67%);
+    border: none;
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    width: 45vw;
+    margin-top: 2rem;
+}
+
+.texto {
+    color: var(--branco);
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.cadastro {
+    color: blue;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.mensagem__erro {
+    font-size: 1rem;
+    margin-left: 1rem;
+    font-weight: bold;
+    color: red;
+}
+
+.mensagem_erro-api {
+    font-size: 1rem;
+    font-weight: bold;
+    color: red;
+    text-align: center;
+    align-items: center;
+}
+
+@media screen and (max-height: 970px) {
+
+    .fundo {
+        height: 90vh;
+    }
+    
+}
+
+@media screen and (min-height: 971px) {
+
+    .fundo {
+        height: 90vh;
+    }
+    
+}
+
