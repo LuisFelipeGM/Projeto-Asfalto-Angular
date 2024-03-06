@@ -1,1 +1,33 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+:root {
+    --cor-primaria: #0A1A1C;
+    --cor-secundaria: #1F1F1F;
+    --cor-terciaria: #0E0F10;
+    --vermelho: #D13639;
+    --branco: #FFFFFF;
+    --preto: #000000;
+
+    /* Fontes */
+    --fonte-primaria: 'Open Sans', sans-serif;
+    --fonte-secundaria: 'Inter', sans-serif;
+}
+
+.ff-inter {
+    font-family: var(--fonte-secundaria);
+    font-weight: 300;
+}
+
+.ff-opensans {
+    font-family: var(--fonte-primaria);
+    font-weight: 400;
+}
