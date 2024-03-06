@@ -1,0 +1,141 @@
+.cabecalho {
+    padding: 1.2rem 2rem 1.2rem 2rem;
+    background-color: var(--cor-terciaria);
+    position: relative;
+}
+
+.cabecalho__menu {
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu__esquerda {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 3rem;
+}
+
+.menu__direita {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.cabecalho__menu__texto {
+    color: var(--branco);
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+
+.cabecalho__menu__texto:hover {
+    color: var(--vermelho);
+}
+
+.botao__login {
+    background-color: var(--vermelho);
+    font-size: 1.125rem;
+    font-weight: 500;
+    padding: 20px;
+    border-radius: 1rem;
+    border: 0;
+    cursor: pointer;
+}
+
+.cabecalho__logo img {
+    width: 10vh;
+    height: 10vh;
+}
+
+.mobile {
+    display: none;
+}
+
+.ativo {
+    color: var(--vermelho);
+}
+
+
+@media screen and (max-width: 768px) {
+
+    .desktop {
+        display: none;
+    }
+    
+    .mobile {
+        display: block;
+    }
+    
+    .menu-hamburguer {
+        width: 3.5rem;
+        height: 3.5rem;
+        background-repeat: no-repeat;
+        background-position: center;
+        display: inline-block;
+    }
+    
+    .container__botao {
+        display: none;
+    }
+    
+    .lista-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+    }
+    
+    .lista-menu li {
+        list-style: none;
+        background-color: var(--cor-secundaria);
+        padding: 2rem 4rem;
+        margin-right: 5rem;
+    }
+    
+    .container__botao:checked ~ .lista-menu {
+        display: block;
+    }
+
+}
+
+@media screen and (max-width: 480px) {
+
+    .desktop {
+        display: none;
+    }
+    
+    .mobile {
+        display: block;
+    }
+    
+    .menu-hamburguer {
+        width: 3.5rem;
+        height: 3.5rem;
+        background-repeat: no-repeat;
+        background-position: center;
+        display: inline-block;
+    }
+    
+    .container__botao {
+        display: none;
+    }
+    
+    .lista-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+    }
+    
+    .lista-menu li {
+        list-style: none;
+        background-color: var(--cor-secundaria);
+        padding: 2rem 4rem;
+        margin-right: 5rem;
+    }
+    
+    .container__botao:checked ~ .lista-menu {
+        display: block;
+    }
+    
+}
