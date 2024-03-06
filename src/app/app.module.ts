@@ -6,19 +6,28 @@ import { AppComponent } from './app.component';
 import { RodapeComponent } from './components/rodape/rodape.component';
 import { CabecalhoComponent } from './components/nao-logado/cabecalho/cabecalho.component';
 import { HomeNlComponent } from './components/nao-logado/home-nl/home-nl.component';
+import { CadastroUsuarioComponent } from './components/nao-logado/cadastro-usuario/cadastro-usuario.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 
 @NgModule({
   declarations: [
     AppComponent,
     RodapeComponent,
     CabecalhoComponent,
-    HomeNlComponent
+    HomeNlComponent,
+    CadastroUsuarioComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    NgxMaskDirective,
+    NgxMaskPipe
   ],
-  providers: [],
+  providers: [provideNgxMask()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
