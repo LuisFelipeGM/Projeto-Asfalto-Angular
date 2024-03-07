@@ -16,20 +16,41 @@
     color: var(--branco);
 }
 
+.texto {
+    color: var(--branco);
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    cursor: pointer;
+}
+
 .ranking ul {
     list-style: none;
     padding-top: 2rem;
 }
 
-.ranking ul li a {
+.texto_ranking {
     text-decoration: none;
     color: var(--branco);
-    font-size: 1.5rem;
+    font-size: 1.25rem;
+    cursor: pointer;
+}
+
+.ranking ul li p:hover {
+    color: var(--vermelho);
+}
+
+.texto:hover {
+    color: var(--vermelho);
 }
 
 .imagem__infowindow {
     width: 10vw;
     height: 10vw;
+}
+
+.ativo {
+    color: var(--vermelho);
 }
 
 

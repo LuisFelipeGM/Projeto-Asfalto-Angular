@@ -3,14 +3,17 @@
   <div class="ranking">
     <h2>Ranking de bairros</h2>
     <ul>
-      <li><a href="#">1. Vila Olímpia - 10</a></li>
-      <li><a href="#">2. Jardins - 8</a></li>
-      <li><a href="#">3. Pinheiros - 5</a></li>
-      <li><a href="#">4. Itaim Bibi - 3</a></li>
+      <p class="texto" (click)="filtrarOcorrenciasPorBairro('')" [ngClass]="{'ativo': !bairroAtivo}">
+        Todos os Bairros
+      </p>
+      <li *ngFor="let bairro of rankingBairros.slice(0, 10); let i = index">
+        <p class="texto_ranking" (click)="filtrarOcorrenciasPorBairro(bairro.bairro)" [ngClass]="{'ativo': bairroAtivo === bairro.bairro}">
+          {{i+1}}. {{bairro.bairro}} - {{bairro.quantidade}}
+        </p>
+      </li>
     </ul>
   </div>
   <google-map
-    class="map"
     height="79.4vh"
     width="85vw"
     [zoom]="zoom"
@@ -18,7 +21,7 @@
     [center]="center"
   >
     <map-marker
-      *ngFor="let ocorrencia of ocorrencias"
+      *ngFor="let ocorrencia of ocorrenciasFiltradas"
       #marker="mapMarker"
       [position]="{ lat: ocorrencia.latitude, lng: ocorrencia.longitude }"
       (mapClick)="openInfoWindow(marker, ocorrencia)"
@@ -26,6 +29,7 @@
       <map-info-window>
         <img src="https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/chamadas/buraco_1409662578.jpg" alt="imagem" class="imagem__infowindow">
         <p><strong>Endereço:</strong> {{ infoContent.endereco }}</p>
+        <p><strong>Bairro:</strong> {{ infoContent.bairro}}</p>
         <p><strong>CEP:</strong> {{ infoContent.cep }}</p>
         <p><strong>Data de Ocorrência:</strong> {{ infoContent.data }}</p>
         <p><strong>Status:</strong> {{ infoContent.status }}</p>
