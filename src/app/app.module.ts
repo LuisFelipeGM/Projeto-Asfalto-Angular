@@ -11,6 +11,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 import { LoginComponent } from './components/nao-logado/login/login.component';
+import { MapaNlComponent } from './components/nao-logado/mapa-nl/mapa-nl.component';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,8 @@ import { LoginComponent } from './components/nao-logado/login/login.component';
     CabecalhoComponent,
     HomeNlComponent,
     CadastroUsuarioComponent,
-    LoginComponent
+    LoginComponent,
+    MapaNlComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +30,8 @@ import { LoginComponent } from './components/nao-logado/login/login.component';
     ReactiveFormsModule,
     HttpClientModule,
     NgxMaskDirective,
-    NgxMaskPipe
+    NgxMaskPipe,
+    GoogleMapsModule
   ],
   providers: [provideNgxMask()],
   bootstrap: [AppComponent]
