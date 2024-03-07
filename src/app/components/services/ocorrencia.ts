@@ -16,6 +16,7 @@ export interface Ocorrencia {
 export interface Info {
     url: string,
     endereco: string,
+    bairro: string,
     cep: string,
     data: string,
     status: string
