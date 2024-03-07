@@ -1,0 +1,30 @@
+.area-mapa {
+    display: flex;
+}
+
+.ranking {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--cor-primaria);
+    padding: 1rem 2rem;
+    width: 15vw;
+    height: calc(86.9vh - 100px);
+}
+
+.ranking h2 {
+    text-align: center;
+    color: var(--branco);
+}
+
+.ranking ul {
+    list-style: none;
+    padding-top: 2rem;
+}
+
+.ranking ul li a {
+    text-decoration: none;
+    color: var(--branco);
+    font-size: 1.5rem;
+}
+
+
