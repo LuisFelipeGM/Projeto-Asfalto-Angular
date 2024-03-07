@@ -1,8 +1,8 @@
 export interface Ocorrencia {
     id?: number,
     usuarioId?: number,
-    latitude: string,
-    longitude: string,
+    latitude: number,
+    longitude: number,
     enderecoCompleto: string,
     urlImagem: string,
     logradouro: string,
@@ -10,5 +10,13 @@ export interface Ocorrencia {
     cep: string,
     numero?: number,
     dataOcorrencia: string,
+    status: string
+}
+
+export interface Info {
+    url: string,
+    endereco: string,
+    cep: string,
+    data: string,
     status: string
 }
