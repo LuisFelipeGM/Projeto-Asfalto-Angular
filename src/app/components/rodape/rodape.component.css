@@ -1,4 +1,5 @@
 footer {
+    height: 5vh;
     background-color: var(--cor-secundaria);
     padding: 1rem;
     display: flex;
