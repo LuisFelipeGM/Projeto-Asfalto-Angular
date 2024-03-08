@@ -11,6 +11,7 @@ import { MapInfoWindow, MapMarker } from '@angular/google-maps';
 export class MapaNlComponent implements OnInit {
   @ViewChild(MapInfoWindow) infoWindow!: MapInfoWindow;
 
+  menuAberto: boolean = false;
   zoom = 13;
   center: google.maps.LatLngLiteral = {lat: -23.557548, lng: -46.638341};
   optionsMap: google.maps.MapOptions = {
@@ -19,7 +20,8 @@ export class MapaNlComponent implements OnInit {
     maxZoom: 19,
     minZoom: 10,
     streetViewControl: false,
-    clickableIcons: false
+    clickableIcons: false,
+    gestureHandling: 'greedy'
   };
   infoContent:Info = {
     url: "",
@@ -85,6 +87,9 @@ export class MapaNlComponent implements OnInit {
       ? this.ocorrencias.filter(ocorrencia => ocorrencia.bairro === bairro) : this.ocorrencias;
   }
 
+  abrirMenu() {
+    this.menuAberto === false ? this.menuAberto = true : this.menuAberto = false;
+  }
 
 
 }

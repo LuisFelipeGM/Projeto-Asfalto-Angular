@@ -1,6 +1,17 @@
 <app-cabecalho [selecionado]="'mapa'"></app-cabecalho>
 <section class="area-mapa ff-inter">
-  <div class="ranking">
+  <div class="botao__rank">
+    <input type="checkbox" id="rank" class="container__botao" (click)="abrirMenu()">
+    <label for="rank">
+      <img src="./../../../../assets/images/game-icons--podium.svg" alt="Ranking de Bairros" class="icone-ranking">
+    </label>
+  </div>
+  <div class="ranking" *ngIf="menuAberto">
+    <div class="botao_fechar">
+      <a class="x" (click)="abrirMenu()">
+        <img src="./../../../../assets/images/close.png" alt="Botão Fechar">
+      </a>
+    </div>
     <h2>Ranking de bairros</h2>
     <ul>
       <p class="texto" (click)="filtrarOcorrenciasPorBairro('')" [ngClass]="{'ativo': !bairroAtivo}">
@@ -14,8 +25,8 @@
     </ul>
   </div>
   <google-map
-    height="77vh"
-    width="85vw"
+    height="80vh"
+    width="100vw"
     [zoom]="zoom"
     [options]="optionsMap"
     [center]="center"
