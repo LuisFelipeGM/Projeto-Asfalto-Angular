@@ -38,12 +38,13 @@
       (mapClick)="openInfoWindow(marker, ocorrencia)"
     >
       <map-info-window>
-        <img src="https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/chamadas/buraco_1409662578.jpg" alt="imagem" class="imagem__infowindow">
+        <img src="{{ infoContent.url }}" alt="imagem" class="imagem__infowindow">
         <p><strong>Endereço:</strong> {{ infoContent.endereco }}</p>
         <p><strong>Bairro:</strong> {{ infoContent.bairro}}</p>
         <p><strong>CEP:</strong> {{ infoContent.cep }}</p>
         <p><strong>Data de Ocorrência:</strong> {{ infoContent.data }}</p>
         <p><strong>Status:</strong> {{ infoContent.status }}</p>
+        <p><a href="{{ infoContent.maps }}" target="_blank">Visualize no Google Maps!</a></p>
       </map-info-window>
     </map-marker>
   </google-map>

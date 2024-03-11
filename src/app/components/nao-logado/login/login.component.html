@@ -1,5 +1,9 @@
 <app-cabecalho></app-cabecalho>
 <section class="auth-usuario fundo ff-inter">
+    <div class="mensagem__cadastro-login" *ngIf="cadastroLogin">
+        Seu cadastro foi realizado com sucesso! 
+        Por favor faça o login para entrar no sistema.
+    </div>
     <form [formGroup]="formulario">
         <div class="form__grupo">
             <label for="email">Email:</label>
@@ -15,7 +19,12 @@
 
         <div class="form__grupo">
             <label for="senha">Senha:</label>
-            <input type="password" class="input__grande" id="senha" formControlName="senha" placeholder="Digite a senha!" autocomplete="off">
+            <span class="input__botao">
+                <input [type]="senhaVisivel ? 'text' : 'password'" class="input__grande" id="senha" formControlName="senha" placeholder="Digite a senha!" autocomplete="off">
+                <button type="button" (click)="mostrarSenha()" class="botao__senha">
+                    <img src="{{ iconeSenha }}" alt="Mostrar Senha" class="icone__senha">
+                </button>
+            </span>
             <div class="mensagem__erro" *ngIf="formulario.get('senha')?.errors?.['required'] && formulario.get('senha')?.touched">
                 A senha é obrigatória!
             </div>
