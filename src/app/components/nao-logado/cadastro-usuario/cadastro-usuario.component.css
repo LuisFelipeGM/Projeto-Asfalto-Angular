@@ -86,6 +86,25 @@
     align-items: center;
 }
 
+.input__botao {
+    position: relative;
+}
+
+.input__botao .botao__senha {
+    position: absolute;
+    top: 50%;
+    right: 2%;
+    transform: translateY(-50%);
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.icone__senha {
+    width: 1.8rem;
+    height: 1.8rem;
+}
+
 @media screen and (max-width: 768px) {
 
     .cadastro-usuario form label {
@@ -103,6 +122,10 @@
     .acoes {
         flex-direction: column-reverse;
         gap: 2rem;
+    }
+
+    .input__botao .botao__senha {
+        right: 5%;
     }
 
 }

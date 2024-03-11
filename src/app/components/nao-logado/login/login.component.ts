@@ -12,6 +12,8 @@ export class LoginComponent implements OnInit {
 
   formulario!: FormGroup;
   mensagemErro = '';
+  senhaVisivel = false;
+  iconeSenha = "./../../../../assets/images/visibility_ON.png";
 
   constructor(
     private router: Router,
@@ -37,6 +39,15 @@ export class LoginComponent implements OnInit {
       return 'botao'
     } else {
       return 'botao__desabilitado'
+    }
+  }
+
+  mostrarSenha() {
+    this.senhaVisivel = !this.senhaVisivel;
+    if (this.senhaVisivel) {
+      this.iconeSenha = "./../../../../assets/images/visibility_OFF.png"
+    } else {
+      this.iconeSenha = "./../../../../assets/images/visibility_ON.png"
     }
   }
 
