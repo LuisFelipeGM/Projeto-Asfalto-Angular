@@ -6,6 +6,16 @@
     align-items: center;
 }
 
+.mensagem__cadastro-login {
+    background-color: #368546;
+    padding: 2rem;
+    width: 45vw;
+    margin-bottom: 2rem;
+    border-radius: 2rem;
+    color: var(--branco);
+    font-size: 1.3rem;
+}
+
 .auth-usuario form {
     background: var(--cor-primaria);
     border: none;

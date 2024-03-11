@@ -33,7 +33,7 @@ export class CadastroUsuarioComponent implements OnInit {
   criarUsuario() {
     if(this.formulario.valid) {
       this.service.criar(this.formulario.value).subscribe({
-        next: () => this.router.navigate(['/login']),
+        next: () => this.router.navigate(['/login'], { queryParams: { cadastroSucesso: true } }),
         error: erro => {
           if(erro.status == 0){
             this.mensagemErro = 'Ocorreu um erro de comunicação com o servidor, tente novamente mais tarde!'

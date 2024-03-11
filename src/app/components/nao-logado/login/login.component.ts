@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UsuarioService } from '../../services/usuario.service';
 
 @Component({
@@ -14,14 +14,21 @@ export class LoginComponent implements OnInit {
   mensagemErro = '';
   senhaVisivel = false;
   iconeSenha = "./../../../../assets/images/visibility_ON.png";
+  cadastroLogin = false;
 
   constructor(
     private router: Router,
     private formBuilder: FormBuilder,
-    private service: UsuarioService
+    private service: UsuarioService,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+      if(params['cadastroSucesso']){
+        this.cadastroLogin = true;
+      }
+    })
     this.formulario = this.formBuilder.group({
       email: ['', Validators.compose([Validators.required, Validators.email, Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$')])],
       senha: ['', Validators.compose([Validators.required, Validators.minLength(8)])]

@@ -1,5 +1,9 @@
 <app-cabecalho></app-cabecalho>
 <section class="auth-usuario fundo ff-inter">
+    <div class="mensagem__cadastro-login" *ngIf="cadastroLogin">
+        Seu cadastro foi realizado com sucesso! 
+        Por favor faça o login para entrar no sistema.
+    </div>
     <form [formGroup]="formulario">
         <div class="form__grupo">
             <label for="email">Email:</label>
