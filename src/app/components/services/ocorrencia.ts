@@ -19,5 +19,6 @@ export interface Info {
     bairro: string,
     cep: string,
     data: string,
-    status: string
+    status: string,
+    maps: string
 }

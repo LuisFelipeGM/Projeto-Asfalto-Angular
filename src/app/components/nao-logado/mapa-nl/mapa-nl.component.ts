@@ -29,7 +29,8 @@ export class MapaNlComponent implements OnInit {
     bairro: "",
     cep: "",
     data: "",
-    status: ""
+    status: "",
+    maps: ""
   };
   ocorrencias: Ocorrencia[] = [];
   rankingBairros: { bairro: string, quantidade: number }[] = [];
@@ -56,11 +57,13 @@ export class MapaNlComponent implements OnInit {
     if (marker instanceof MapMarker) {
       this.infoContent = {
         url: ocorrencia.urlImagem,
-        endereco: ocorrencia.enderecoCompleto,
+        endereco: `${ocorrencia.logradouro}, ${ocorrencia.numero}`,
         bairro: ocorrencia.bairro,
         cep: ocorrencia.cep,
         data: ocorrencia.dataOcorrencia,
-        status: "Ocorrência Ativa"
+        status: "Ativa",
+        maps: `https://www.google.com/maps/place/${ocorrencia.latitude}+${ocorrencia.longitude}`
+
       };
       this.infoWindow.open(marker);
     } else {
