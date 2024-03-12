@@ -36,6 +36,8 @@ export class MapaNlComponent implements OnInit {
   rankingBairros: { bairro: string, quantidade: number }[] = [];
   ocorrenciasFiltradas: Ocorrencia[] = [];
   bairroAtivo: string = '';
+  mensagemErro = '';
+  comunicacaoAPI = false;
 
   constructor(
     private service: OcorrenciaService
@@ -47,8 +49,12 @@ export class MapaNlComponent implements OnInit {
         this.ocorrencias = listaOcorrencias;
         this.calcularRankingBairros();
         this.filtrarOcorrenciasPorBairro('');
+        this.comunicacaoAPI = true;
       },
-      
+      error: erro => {
+          this.mensagemErro = 'Ocorreu um erro de comunicação com o servidor, tente novamente mais tarde!'
+          this.comunicacaoAPI = false;
+      }
     } )
 
   }

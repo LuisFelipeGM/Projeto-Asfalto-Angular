@@ -8,7 +8,7 @@
         <div class="form__grupo">
             <label for="nomeCompleto">Nome Completo:</label>
             <input type="text" class="input__grande" id="nomeCompleto" formControlName="nomeCompleto" 
-            placeholder="Digite o nome!" autocomplete="off">
+            placeholder="Digite o nome" autocomplete="off">
             <div class="mensagem__erro" 
             *ngIf="formulario.get('nomeCompleto')?.errors?.['required'] && formulario.get('nomeCompleto')?.touched">
                 O Nome é obrigatório!
@@ -41,7 +41,7 @@
         <!-- Campo Email -->
         <div class="form__grupo">
             <label for="email">Email:</label>
-            <input type="text" class="input__grande" id="email" formControlName="email" placeholder="Digite o email!" autocomplete="off">
+            <input type="text" class="input__grande" id="email" formControlName="email" placeholder="Digite o email" autocomplete="off">
             <div class="mensagem__erro" *ngIf="formulario.get('email')?.errors?.['required'] && formulario.get('email')?.touched">
                 O Email é obrigatório!
             </div>
@@ -56,7 +56,7 @@
         <div class="form__grupo">
             <label for="senha">Senha:</label>
             <span class="input__botao">
-                <input [type]="senhaVisivel ? 'text' : 'password'" class="input__grande" id="senha" formControlName="senha" placeholder="Digite a senha!" autocomplete="off">
+                <input [type]="senhaVisivel ? 'text' : 'password'" class="input__grande" id="senha" formControlName="senha" placeholder="Digite a senha" autocomplete="off">
                 <button type="button" (click)="mostrarSenha()" class="botao__senha">
                     <img src="{{ iconeSenha }}" alt="Mostrar Senha" class="icone__senha">
                 </button>

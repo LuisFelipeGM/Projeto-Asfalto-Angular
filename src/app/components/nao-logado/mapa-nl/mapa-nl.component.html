@@ -1,6 +1,10 @@
 <app-cabecalho [selecionado]="'mapa'"></app-cabecalho>
 <section class="area-mapa ff-inter">
-  <div class="botao__rank">
+  <div class="mensagem_erro-api" *ngIf="mensagemErro">
+    <p>{{ mensagemErro }}</p>
+  </div>
+  <div *ngIf="comunicacaoAPI">
+    <div class="botao__rank">
     <input type="checkbox" id="rank" class="container__botao" (click)="abrirMenu()">
     <label for="rank">
       <img src="./../../../../assets/images/game-icons--podium.svg" alt="Ranking de Bairros" class="icone-ranking">
@@ -48,4 +52,5 @@
       </map-info-window>
     </map-marker>
   </google-map>
+  </div>
 </section>
