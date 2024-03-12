@@ -8,7 +8,7 @@ import { Usuario } from './usuario';
 })
 export class UsuarioService {
 
-  private readonly API = 'http://localhost:8080/usuario';
+  private readonly API = 'http://localhost:8080/usuarios-service';
 
   constructor(private http: HttpClient) { }
 
