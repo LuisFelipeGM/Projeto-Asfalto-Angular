@@ -1,0 +1,49 @@
+.area__fundo {
+    height: 74.4vh;
+    background-color: var(--cor-primaria);
+}
+
+.textos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 5rem;
+    text-align: center;
+}
+
+.textos h2 {
+    font-size: 5rem;
+    margin-bottom: 3rem;
+    color: var(--vermelho);
+}
+
+.textos p {
+    font-size: 2rem;
+    margin-bottom: 3rem;
+    color: var(--vermelho);
+}
+
+.textos a {
+    font-size: 1.8rem;
+    text-decoration: none;
+    color: blue;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+
+    .textos p {
+        font-size: 1.6rem;
+    }
+
+    .textos a {
+        font-size: 1.5rem;
+    }
+
+}
+
+@media screen and (max-width: 480px) {
+
+    
+    
+}
