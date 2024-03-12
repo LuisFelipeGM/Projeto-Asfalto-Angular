@@ -14,6 +14,7 @@ import { LoginComponent } from './components/nao-logado/login/login.component';
 import { MapaNlComponent } from './components/nao-logado/mapa-nl/mapa-nl.component';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { PageNotFoundComponent } from './components/nao-logado/page-not-found/page-not-found.component';
+import { PerfilUsuarioComponent } from './components/logado/perfil-usuario/perfil-usuario.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { PageNotFoundComponent } from './components/nao-logado/page-not-found/pa
     CadastroUsuarioComponent,
     LoginComponent,
     MapaNlComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    PerfilUsuarioComponent
   ],
   imports: [
     BrowserModule,

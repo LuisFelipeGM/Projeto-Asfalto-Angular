@@ -44,6 +44,7 @@ export class LoginComponent implements OnInit {
       this.authService.autenticar(email, senha).subscribe({
         next: (value) => {
           console.log(value)
+          this.router.navigateByUrl('/perfil')
         },
         error: (err) => {
           console.log('Erro no login', err)

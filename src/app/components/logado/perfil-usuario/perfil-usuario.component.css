@@ -1,0 +1,123 @@
+.fundo{
+    background-color: var(--cor-secundaria);
+    padding: 3rem;
+}
+
+.perfil-usuario .formularios {
+    background: var(--cor-primaria);
+    border: none;
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+}
+
+.perfil-usuario form label {
+    color: var(--branco);
+    font-family: var(--fonte-secundaria);
+    font-weight: 500;
+    font-weight: bold;
+    margin: 0 0 0.5rem 1rem;
+}
+
+.perfil-usuario form input {
+    border: none;
+    height: 2rem;
+    padding: 1rem 2rem;
+    border-radius: 20px;
+    margin: 0.3rem;
+    font-size: 1rem;
+}
+
+
+.form__grupo {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    align-self: center;
+    padding-left: 2rem;
+}
+
+.input__medio {
+    width: 66vw;
+}
+
+.input__grande {
+    width: 81vw;
+}
+
+.imagem__campos {
+    display: flex;
+    align-items: center;
+}
+
+.imagem__perfil {
+    width: auto;
+    height: auto;
+}
+
+.acoes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin-top: 2rem;
+}
+
+.botao {
+    height: 4rem;
+    width: 12rem;
+    background: var(--vermelho);
+    color: var(--branco);
+    border: none;
+    border-radius: 1rem;
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+
+.botao__desabilitado {
+    height: 4rem;
+    width: 12rem;
+    background-color: var(--cor-secundaria);
+    color: var(--branco);
+    border: none;
+    border-radius: 1rem;
+}
+
+hr {
+    margin: 2rem 0 0.5rem 0;
+}
+
+.mensagem__erro {
+    font-size: 1rem;
+    margin-left: 1rem;
+    font-weight: bold;
+    color: red;
+}
+
+.mensagem_erro-api {
+    font-size: 1rem;
+    font-weight: bold;
+    color: red;
+    text-align: center;
+    align-items: center;
+}
+
+.input__botao {
+    position: relative;
+}
+
+.input__botao .botao__senha {
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    transform: translateY(-50%);
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.icone__senha {
+    width: 1.8rem;
+    height: 1.8rem;
+}

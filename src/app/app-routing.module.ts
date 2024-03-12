@@ -5,6 +5,7 @@ import { CadastroUsuarioComponent } from './components/nao-logado/cadastro-usuar
 import { LoginComponent } from './components/nao-logado/login/login.component';
 import { MapaNlComponent } from './components/nao-logado/mapa-nl/mapa-nl.component';
 import { PageNotFoundComponent } from './components/nao-logado/page-not-found/page-not-found.component';
+import { PerfilUsuarioComponent } from './components/logado/perfil-usuario/perfil-usuario.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path: 'mapa',
     component: MapaNlComponent
+  },
+  {
+    path: 'perfil',
+    component: PerfilUsuarioComponent
   },
   {
     path: '**',
