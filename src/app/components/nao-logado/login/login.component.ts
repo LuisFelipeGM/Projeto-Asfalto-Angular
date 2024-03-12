@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UsuarioService } from '../../services/usuario.service';
+import { AutenticacaoService } from '../../services/autenticacao.service';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +21,8 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private formBuilder: FormBuilder,
     private service: UsuarioService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private authService: AutenticacaoService
   ) { }
 
   ngOnInit(): void {
@@ -36,8 +38,17 @@ export class LoginComponent implements OnInit {
   }
 
   logar() {
+    const email = this.formulario.value.email;
+    const senha = this.formulario.value.senha;
     if(this.formulario.valid){
-      alert("LOGADO!");
+      this.authService.autenticar(email, senha).subscribe({
+        next: (value) => {
+          console.log(value)
+        },
+        error: (err) => {
+          console.log('Erro no login', err)
+        }
+      })
     }
   }
 

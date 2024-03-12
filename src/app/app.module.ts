@@ -13,6 +13,7 @@ import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 import { LoginComponent } from './components/nao-logado/login/login.component';
 import { MapaNlComponent } from './components/nao-logado/mapa-nl/mapa-nl.component';
 import { GoogleMapsModule } from '@angular/google-maps';
+import { PageNotFoundComponent } from './components/nao-logado/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { GoogleMapsModule } from '@angular/google-maps';
     HomeNlComponent,
     CadastroUsuarioComponent,
     LoginComponent,
-    MapaNlComponent
+    MapaNlComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
