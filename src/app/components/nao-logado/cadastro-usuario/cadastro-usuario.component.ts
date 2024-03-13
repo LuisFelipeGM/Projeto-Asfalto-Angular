@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UsuarioService } from '../../services/usuario.service';
+import { Usuario } from '../../services/usuario';
 
 @Component({
   selector: 'app-cadastro-usuario',
@@ -14,6 +15,7 @@ export class CadastroUsuarioComponent implements OnInit {
   mensagemErro = '';
   senhaVisivel = false;
   iconeSenha = "./../../../../assets/images/visibility_ON.png";
+  usuario!: Usuario;
 
   constructor(
     private router: Router,
@@ -32,7 +34,13 @@ export class CadastroUsuarioComponent implements OnInit {
 
   criarUsuario() {
     if(this.formulario.valid) {
-      this.service.criar(this.formulario.value).subscribe({
+      this.usuario = {
+        nomeCompleto: this.formulario.value.nomeCompleto,
+        cpf: this.formulario.value.cpf.trim(),
+        email: this.formulario.value.email,
+        senha: this.formulario.value.senha,
+      }
+      this.service.criar(this.usuario).subscribe({
         next: () => this.router.navigate(['/login'], { queryParams: { cadastroSucesso: true } }),
         error: erro => {
           if(erro.status == 0){

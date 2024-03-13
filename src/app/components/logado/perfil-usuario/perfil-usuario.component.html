@@ -1,115 +1,110 @@
+<app-cabecalho [selecionado]="'cadastro'"></app-cabecalho>
 <section class="perfil-usuario fundo ff-inter">
     <div class="formularios">
 
         <form [formGroup]="formularioSecao1">
-            <!-- Primeira Parte do Form -->
-            <div class="secao1">
-                <div class="imagem__campos">
-                    <div class="foto__perfil">
-                        <img src="./../../../../assets/images/perfil.png" alt="Imagem de Perfil" class="imagem__perfil">
-                    </div>
-                    <div class="campos__imagem">
-                        <!-- Campo Nome -->
-                        <div class="form__grupo">
-                            <label for="nomeCompleto">Nome Completo:</label>
-                            <input type="text" class="input__medio" id="nomeCompleto" formControlName="nomeCompleto" 
-                            placeholder="Digite o nome" autocomplete="off">
-                            <div class="mensagem__erro" 
-                            *ngIf="formularioSecao1.get('nomeCompleto')?.errors?.['required'] && formularioSecao1.get('nomeCompleto')?.touched">
-                                O Nome é obrigatório!
-                            </div>
-                            <div class="mensagem__erro" 
-                            *ngIf="formularioSecao1.get('nomeCompleto')?.errors?.['minlength'] && formularioSecao1.get('nomeCompleto')?.touched">
-                                O Nome precisa ter no mínimo 3 caracteres!
-                            </div>
-                            <div class="mensagem__erro" 
-                            *ngIf="formularioSecao1.get('nomeCompleto')?.errors?.['pattern'] && formularioSecao1.get('nomeCompleto')?.touched">
-                                O Nome tem caracteres inválidos
-                            </div>
-                        </div>
-                
-                        <!-- Campo CPF -->
-                        <div class="form__grupo">
-                            <label for="cpf">CPF:</label>
-                            <input type="text" class="input__medio" id="cpf" formControlName="cpf" placeholder="000.000.000-00"
-                            mask="000.000.000-00" [dropSpecialCharacters]="false" autocomplete="off">
-                            <div class="mensagem__erro" 
-                            *ngIf="formularioSecao1.get('cpf')?.errors?.['required'] && formularioSecao1.get('cpf')?.touched">
-                                O CPF é obrigatório!
-                            </div>
-                            <div class="mensagem__erro" 
-                            *ngIf="(formularioSecao1.get('cpf')?.errors?.['minlength'] || formularioSecao1.get('cpf')?.errors?.['maxlength']) && formularioSecao1.get('cpf')?.touched">
-                                O CPF é inválido!
-                            </div>
-                        </div>
-                    </div>
+
+            <div class="foto__perfil">
+                <img src="./../../../../assets/images/perfil.png" alt="Imagem de Perfil" class="imagem__perfil">
+            </div>
+            <!-- Campo Nome -->
+            <div class="form__grupo">
+                <label for="nomeCompleto">Nome Completo:</label>
+                <input type="text" class="input__grande" id="nomeCompleto" formControlName="nomeCompleto" 
+                placeholder="Digite o nome" autocomplete="off">
+                <div class="mensagem__erro" 
+                *ngIf="formularioSecao1.get('nomeCompleto')?.errors?.['required'] && formularioSecao1.get('nomeCompleto')?.touched">
+                    O Nome é obrigatório!
                 </div>
-    
-                <!-- Campo Email -->
-                <div class="form__grupo">
-                    <label for="email">Email:</label>
-                    <input type="text" class="input__grande" id="email" formControlName="email" placeholder="Digite o email" autocomplete="off">
-                    <div class="mensagem__erro" *ngIf="formularioSecao1.get('email')?.errors?.['required'] && formularioSecao1.get('email')?.touched">
-                        O Email é obrigatório!
-                    </div>
-                    <div class="mensagem__erro" 
-                    *ngIf="(formularioSecao1.get('email')?.errors?.['email'] || formularioSecao1.get('email')?.errors?.['pattern']) && formularioSecao1.get('email')?.touched">
-                        O Email é inválido!
-                    </div>
+                <div class="mensagem__erro" 
+                *ngIf="formularioSecao1.get('nomeCompleto')?.errors?.['minlength'] && formularioSecao1.get('nomeCompleto')?.touched">
+                    O Nome precisa ter no mínimo 3 caracteres!
                 </div>
-    
-                <div class="acoes">
-                    <button [disabled]="!formularioSecao1.valid" [ngClass]="habilitarBotaoEditar()">Editar</button>
+                <div class="mensagem__erro" 
+                *ngIf="formularioSecao1.get('nomeCompleto')?.errors?.['pattern'] && formularioSecao1.get('nomeCompleto')?.touched">
+                    O Nome tem caracteres inválidos
                 </div>
             </div>
     
-            <hr>
+            <!-- Campo CPF -->
+            <div class="form__grupo">
+                <label for="cpf">CPF:</label>
+                <input type="text" class="input__grande" id="cpf" formControlName="cpf" placeholder="000.000.000-00"
+                mask="000.000.000-00" [dropSpecialCharacters]="false" autocomplete="off">
+                <div class="mensagem__erro" 
+                *ngIf="formularioSecao1.get('cpf')?.errors?.['required'] && formularioSecao1.get('cpf')?.touched">
+                    O CPF é obrigatório!
+                </div>
+                <div class="mensagem__erro" 
+                *ngIf="(formularioSecao1.get('cpf')?.errors?.['minlength'] || formularioSecao1.get('cpf')?.errors?.['maxlength']) && formularioSecao1.get('cpf')?.touched">
+                    O CPF é inválido!
+                </div>
+            </div>
+    
+            <!-- Campo Email -->
+            <div class="form__grupo">
+                <label for="email">Email:</label>
+                <input type="text" class="input__grande" id="email" formControlName="email" placeholder="Digite o email" autocomplete="off">
+                <div class="mensagem__erro" *ngIf="formularioSecao1.get('email')?.errors?.['required'] && formularioSecao1.get('email')?.touched">
+                    O Email é obrigatório!
+                </div>
+                <div class="mensagem__erro" 
+                *ngIf="(formularioSecao1.get('email')?.errors?.['email'] || formularioSecao1.get('email')?.errors?.['pattern']) && formularioSecao1.get('email')?.touched">
+                    O Email é inválido!
+                </div>
+    
+            </div>
+    
+            <div class="acoes">
+                <button [disabled]="!formularioSecao1.valid" (click)="editarUsuario()" [ngClass]="habilitarBotaoEditar()">Editar</button>
+            </div>
     
         </form>
 
-        <form [formGroup]="formularioSecao2">
-            <div class="secao2">
-                <!-- Campo Senha Atual -->
-                <div class="form__grupo">
-                    <label for="senha">Senha:</label>
-                    <span class="input__botao">
-                        <input [type]="senhaVisivelAtual ? 'text' : 'password'" class="input__grande" id="senha" formControlName="senhaAtual" placeholder="Digite a senha" autocomplete="off">
-                        <button type="button" (click)="mostrarSenha('atual')" class="botao__senha">
-                            <img src="{{ iconeSenhaAtual }}" alt="Mostrar Senha" class="icone__senha">
-                        </button>
-                    </span>
-        
-                    <div class="mensagem__erro" *ngIf="formularioSecao2.get('senhaAtual')?.errors?.['required'] && formularioSecao2.get('senhaAtual')?.touched">
-                        A senha é obrigatória!
-                    </div>
-                    <div class="mensagem__erro" *ngIf="formularioSecao2.get('senhaAtual')?.errors?.['minlength'] && formularioSecao2.get('senhaAtual')?.touched">
-                        A senha deve ter no minímo 8 caractéres
-                    </div>
-                </div>
-    
-                <!-- Campo Senha Nova  -->
-                <div class="form__grupo">
-                    <label for="novaSenha">Nova Senha:</label>
-                    <span class="input__botao">
-                        <input [type]="senhaVisivelNova ? 'text' : 'password'" class="input__grande" id="novaSenha" formControlName="novaSenha" placeholder="Digite a senha" autocomplete="off">
-                        <button type="button" (click)="mostrarSenha('nova')" class="botao__senha">
-                            <img src="{{ iconeSenhaNova }}" alt="Mostrar Senha" class="icone__senha">
-                        </button>
-                    </span>
-        
-                    <div class="mensagem__erro" *ngIf="formularioSecao2.get('novaSenha')?.errors?.['required'] && formularioSecao2.get('novaSenha')?.touched">
-                        A senha é obrigatória!
-                    </div>
-                    <div class="mensagem__erro" *ngIf="formularioSecao2.get('novaSenha')?.errors?.['minlength'] && formularioSecao2.get('novaSenha')?.touched">
-                        A senha deve ter no minímo 8 caractéres
-                    </div>
-                </div>
-    
-                <div class="acoes">
-                    <button [disabled]="!formularioSecao1.valid" [ngClass]="habilitarBotaoSenha()">Alterar Senha</button>
-                </div>
-            </div>
+        <hr>
 
+        <form [formGroup]="formularioSecao2">
+
+        <!-- Campo Senha Atual -->
+        <div class="form__grupo">
+            <label for="senha">Senha Atual:</label>
+            <span class="input__botao">
+                <input [type]="senhaVisivelAtual ? 'text' : 'password'" class="input__grande" id="senhaAtual" formControlName="senhaAtual" placeholder="Digite a senha atual" autocomplete="off">
+                <button type="button" (click)="mostrarSenha('atual')" class="botao__senha">
+                    <img src="{{ iconeSenhaAtual }}" alt="Mostrar Senha" class="icone__senha">
+                </button>
+            </span>
+
+            <div class="mensagem__erro" *ngIf="formularioSecao2.get('senhaAtual')?.errors?.['required'] && formularioSecao2.get('senhaAtual')?.touched">
+                A senha atual é obrigatória!
+            </div>
+            <div class="mensagem__erro" *ngIf="formularioSecao2.get('senhaAtual')?.errors?.['minlength'] && formularioSecao2.get('senhaAtual')?.touched">
+                A senha atual deve ter no minímo 8 caractéres
+            </div>
+        </div>
+
+        
+        <div class="form__grupo">
+            <label for="senha">Nova Senha:</label>
+            <span class="input__botao">
+                <input [type]="senhaVisivelNova ? 'text' : 'password'" class="input__grande" id="novaSenha" formControlName="novaSenha" placeholder="Digite a senha atual" autocomplete="off">
+                <button type="button" (click)="mostrarSenha('nova')" class="botao__senha">
+                    <img src="{{ iconeSenhaNova }}" alt="Mostrar Senha" class="icone__senha">
+                </button>
+            </span>
+
+            <div class="mensagem__erro" *ngIf="formularioSecao2.get('novaSenha')?.errors?.['required'] && formularioSecao2.get('novaSenha')?.touched">
+                A nova senha é obrigatória!
+            </div>
+            <div class="mensagem__erro" *ngIf="formularioSecao2.get('novaSenha')?.errors?.['minlength'] && formularioSecao2.get('novaSenha')?.touched">
+                A nova senha deve ter no minímo 8 caractéres
+            </div>
+        </div>
+    
+            <div class="acoes">
+                <button [disabled]="!formularioSecao2.valid" (click)="editarSenha()" [ngClass]="habilitarBotaoSenha()">Alterar Senha</button>
+            </div>
+    
         </form>
     </div>
 </section>
