@@ -1,15 +1,24 @@
 .fundo{
     background-color: var(--cor-secundaria);
     padding: 3rem;
+
 }
 
-.perfil-usuario .formularios {
+.formularios {
     background: var(--cor-primaria);
     border: none;
     border-radius: 2rem;
+
+}
+
+.perfil-usuario form {
     display: flex;
     flex-direction: column;
     padding: 2rem;
+}
+
+.foto__perfil {
+    text-align: center;
 }
 
 .perfil-usuario form label {
@@ -35,25 +44,10 @@
     flex-direction: column;
     margin: 1rem;
     align-self: center;
-    padding-left: 2rem;
-}
-
-.input__medio {
-    width: 66vw;
 }
 
 .input__grande {
-    width: 81vw;
-}
-
-.imagem__campos {
-    display: flex;
-    align-items: center;
-}
-
-.imagem__perfil {
-    width: auto;
-    height: auto;
+    width: 77vw;
 }
 
 .acoes {
@@ -61,7 +55,8 @@
     justify-content: center;
     align-items: center;
     align-content: center;
-    margin-top: 2rem;
+    gap: 5rem;
+    margin-top: 1rem;
 }
 
 .botao {
@@ -82,10 +77,6 @@
     color: var(--branco);
     border: none;
     border-radius: 1rem;
-}
-
-hr {
-    margin: 2rem 0 0.5rem 0;
 }
 
 .mensagem__erro {
@@ -110,7 +101,7 @@ hr {
 .input__botao .botao__senha {
     position: absolute;
     top: 50%;
-    right: 5%;
+    right: 2%;
     transform: translateY(-50%);
     border: none;
     background-color: transparent;
@@ -121,3 +112,39 @@ hr {
     width: 1.8rem;
     height: 1.8rem;
 }
+
+
+@media screen and (max-width: 768px) {
+
+    .cadastro-usuario form label {
+        font-size: 1rem;
+    }
+
+    .cadastro-usuario form input {
+        font-size: 0.85rem;
+    }
+
+    .input__grande {
+        width: 40vw;
+    }
+
+    .acoes {
+        flex-direction: column-reverse;
+        gap: 2rem;
+    }
+
+    .input__botao .botao__senha {
+        right: 5%;
+    }
+
+}
+
+@media screen and (min-height: 970px) {
+
+    .fundo {
+        height: 80vh;
+    }
+    
+}
+
+

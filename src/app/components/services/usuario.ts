@@ -7,3 +7,15 @@ export interface Usuario {
     tipoUsuario?: string,
     ativo?: boolean
 }
+
+export interface UsuarioUpdate {
+    nomeCompleto: string,
+    cpf: string,
+    email: string
+    tipoUsuario: string
+}
+
+export interface SenhaUpdate {
+    senhaAntiga: string,
+    novaSenha: string
+}
