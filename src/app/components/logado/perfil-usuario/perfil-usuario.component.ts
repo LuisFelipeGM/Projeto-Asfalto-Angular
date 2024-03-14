@@ -15,7 +15,10 @@ export class PerfilUsuarioComponent implements OnInit {
 
   formularioSecao1!: FormGroup;
   formularioSecao2!: FormGroup;
-  mensagemErro = '';
+  mensagemErroEditar = '';
+  mensagemErroSenha = '';
+  mensagemSucessoEditar = '';
+  mensagemSucessoSenha = '';
   senhaVisivelAtual = false;
   senhaVisivelNova = false;
   iconeSenhaAtual = "./../../../../assets/images/visibility_ON.png";
@@ -105,8 +108,19 @@ export class PerfilUsuarioComponent implements OnInit {
         email: this.formularioSecao1.value.email,
         tipoUsuario: "U"
       }
-      this.usuarioService.editar(this.id, this.usuarioUpdate, this.token).subscribe((usuario) => {
-        console.log(usuario);
+      this.usuarioService.editar(this.id, this.usuarioUpdate, this.token).subscribe({
+        next: () => {
+          this.mensagemErroEditar = ''
+          this.mensagemSucessoEditar = 'Edição realizada com sucesso!'
+        },
+        error: erro => {
+          this.mensagemSucessoEditar = ''
+          if(erro.status == 0){
+            this.mensagemErroEditar = 'Ocorreu um erro de comunicação com o servidor, tente novamente mais tarde!'
+          } else {
+            this.mensagemErroEditar = `Erro ao salvar: ${erro.error[0]}`;
+          }
+        }
       })
     }
   }
@@ -117,9 +131,16 @@ export class PerfilUsuarioComponent implements OnInit {
         senhaAntiga: this.formularioSecao2.value.senhaAtual,
         novaSenha: this.formularioSecao2.value.novaSenha,
       }
-      this.usuarioService.editarSenha(this.id, this.senhaUpdate, this.token).subscribe((usuario) => {
-        const jsonResponse = JSON.parse(usuario);
-        console.log(jsonResponse);
+      this.usuarioService.editarSenha(this.id, this.senhaUpdate, this.token).subscribe({
+        next: (message) => {
+          this.mensagemSucessoSenha = message.message;
+          this.mensagemErroSenha = '';
+          this.formularioSecao2.reset();
+        },
+        error: (err) => {
+          this.mensagemSucessoSenha = ''
+          this.mensagemErroSenha = err.error
+        }
       })
     }
   }

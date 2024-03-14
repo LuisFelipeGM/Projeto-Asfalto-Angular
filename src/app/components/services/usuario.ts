@@ -19,3 +19,7 @@ export interface SenhaUpdate {
     senhaAntiga: string,
     novaSenha: string
 }
+
+export interface Mensagem {
+    message: string
+}

@@ -1,14 +1,14 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { SenhaUpdate, Usuario, UsuarioUpdate } from './usuario';
+import { Mensagem, SenhaUpdate, Usuario, UsuarioUpdate } from './usuario';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsuarioService {
 
-  private readonly API = 'http://localhost:8080/usuarios-service';
+  private readonly API = 'http://localhost:8080/usuario';
 
   constructor(private http: HttpClient) { }
 
@@ -32,13 +32,13 @@ export class UsuarioService {
     return this.http.put<Usuario>(url, usuario, { headers });
   }
 
-  editarSenha(id: number, senhas: SenhaUpdate, token: string): Observable<string> {
+  editarSenha(id: number, senhas: SenhaUpdate, token: string): Observable<Mensagem> {
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
     })
 
     const url = `${this.API}/update/senha/${id}`;
-    return this.http.put<string>(url, senhas, { headers });
+    return this.http.put<Mensagem>(url, senhas, { headers });
   }
 
   excluir(id: number, token: string): Observable<Usuario> {

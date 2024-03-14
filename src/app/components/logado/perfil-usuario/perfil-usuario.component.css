@@ -87,9 +87,17 @@
 }
 
 .mensagem_erro-api {
-    font-size: 1rem;
+    font-size: 1.4rem;
     font-weight: bold;
     color: red;
+    text-align: center;
+    align-items: center;
+}
+
+.mensagem_sucesso-api {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #368546;
     text-align: center;
     align-items: center;
 }
