@@ -54,6 +54,16 @@
                 </div>
     
             </div>
+
+            <div class="mensagem_erro-api " *ngIf="mensagemErroEditar">
+                {{ mensagemErroEditar }}
+            </div>
+
+            <div class="mensagem_sucesso-api " *ngIf="mensagemSucessoEditar">
+                {{ mensagemSucessoEditar }}
+            </div>
+
+
     
             <div class="acoes">
                 <button [disabled]="!formularioSecao1.valid" (click)="editarUsuario()" [ngClass]="habilitarBotaoEditar()">Editar</button>
@@ -99,6 +109,14 @@
             <div class="mensagem__erro" *ngIf="formularioSecao2.get('novaSenha')?.errors?.['minlength'] && formularioSecao2.get('novaSenha')?.touched">
                 A nova senha deve ter no minímo 8 caractéres
             </div>
+        </div>
+
+        <div class="mensagem_erro-api " *ngIf="mensagemErroSenha">
+            {{ mensagemErroSenha }}
+        </div>
+
+        <div class="mensagem_sucesso-api " *ngIf="mensagemSucessoSenha">
+            {{ mensagemSucessoSenha }}
         </div>
     
             <div class="acoes">

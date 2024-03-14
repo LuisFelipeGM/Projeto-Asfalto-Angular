@@ -12,7 +12,7 @@ interface AuthReponse {
 })
 export class AutenticacaoService {
 
-  private readonly API = 'http://localhost:8080/usuarios-service';
+  private readonly API = 'http://localhost:8080/usuario';
 
   constructor(
     private http: HttpClient,
