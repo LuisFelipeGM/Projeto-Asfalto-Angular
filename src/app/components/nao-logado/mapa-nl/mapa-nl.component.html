@@ -4,6 +4,9 @@
     <p>{{ mensagemErro }}</p>
   </div>
   <div *ngIf="comunicacaoAPI">
+    <div class="lista__vazia" *ngIf="ocorrencias.length <= 0">
+      <p>Não temos ocorrências cadastradas!</p>
+    </div>
     <div class="botao__rank">
     <input type="checkbox" id="rank" class="container__botao" (click)="abrirMenu()">
     <label for="rank">

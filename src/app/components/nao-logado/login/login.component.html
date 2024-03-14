@@ -5,6 +5,9 @@
         Por favor faça o login para entrar no sistema.
     </div>
     <form [formGroup]="formulario">
+        <div class="mensagem_erro-api" *ngIf="mensagemErro">
+            <p>{{ mensagemErro }}</p>
+        </div>
         <div class="form__grupo">
             <label for="email">Email:</label>
             <input type="text" class="input__grande" id="email" formControlName="email" placeholder="Digite o email!" autocomplete="off">
