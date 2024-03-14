@@ -15,6 +15,7 @@ import { MapaNlComponent } from './components/nao-logado/mapa-nl/mapa-nl.compone
 import { GoogleMapsModule } from '@angular/google-maps';
 import { PageNotFoundComponent } from './components/nao-logado/page-not-found/page-not-found.component';
 import { PerfilUsuarioComponent } from './components/logado/perfil-usuario/perfil-usuario.component';
+import { CabecalhoLgComponent } from './components/logado/cabecalho-lg/cabecalho-lg.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { PerfilUsuarioComponent } from './components/logado/perfil-usuario/perfi
     LoginComponent,
     MapaNlComponent,
     PageNotFoundComponent,
-    PerfilUsuarioComponent
+    PerfilUsuarioComponent,
+    CabecalhoLgComponent
   ],
   imports: [
     BrowserModule,
