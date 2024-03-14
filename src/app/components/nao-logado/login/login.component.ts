@@ -42,12 +42,11 @@ export class LoginComponent implements OnInit {
     const senha = this.formulario.value.senha;
     if(this.formulario.valid){
       this.authService.autenticar(email, senha).subscribe({
-        next: (value) => {
-          console.log(value)
+        next: () => {
           this.router.navigateByUrl('/perfil')
         },
         error: (err) => {
-          console.log('Erro no login', err)
+          this.mensagemErro = `Erro ao fazer login: ${err.error}`;
         }
       })
     }
