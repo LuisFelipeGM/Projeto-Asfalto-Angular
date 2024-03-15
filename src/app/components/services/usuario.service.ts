@@ -12,51 +12,35 @@ export class UsuarioService {
 
   constructor(private http: HttpClient) { }
 
-  listarAll(token: string): Observable<Usuario[]> {
-    const headers = new HttpHeaders({
-      'Authorization': `Bearer ${token}`
-    })
-
-    return this.http.get<Usuario[]>(`${this.API}/`, { headers });
+  listarAll(): Observable<Usuario[]> {
+    return this.http.get<Usuario[]>(`${this.API}/`);
   }
 
   criar(usuario: Usuario): Observable<Usuario> {
     return this.http.post<Usuario>(`${this.API}/create`, usuario);
   }
 
-  editar(id: number, usuario: UsuarioUpdate, token: string): Observable<Usuario> {
-    const headers = new HttpHeaders({
-      'Authorization': `Bearer ${token}`
-    })
+  editar(id: number, usuario: UsuarioUpdate,): Observable<Usuario> {
     const url = `${this.API}/update/${id}`;
-    return this.http.put<Usuario>(url, usuario, { headers });
+    return this.http.put<Usuario>(url, usuario);
   }
 
-  editarSenha(id: number, senhas: SenhaUpdate, token: string): Observable<Mensagem> {
-    const headers = new HttpHeaders({
-      'Authorization': `Bearer ${token}`
-    })
+  editarSenha(id: number, senhas: SenhaUpdate): Observable<Mensagem> {
 
     const url = `${this.API}/update/senha/${id}`;
-    return this.http.put<Mensagem>(url, senhas, { headers });
+    return this.http.put<Mensagem>(url, senhas);
   }
 
-  excluir(id: number, token: string): Observable<Usuario> {
-    const headers = new HttpHeaders({
-      'Authorization': `Bearer ${token}`
-    })
+  excluir(id: number): Observable<Usuario> {
 
     const url = `${this.API}/delete/${id}`;
-    return this.http.delete<Usuario>(url, { headers });
+    return this.http.delete<Usuario>(url);
   }
 
-  buscarPorId(id: number, token: string): Observable<Usuario> {
-    const headers = new HttpHeaders({
-      'Authorization': `Bearer ${token}`
-    })
+  buscarPorId(id: number): Observable<Usuario> {
 
     const url = `${this.API}/${id}`;
-    return this.http.get<Usuario>(url, { headers });
+    return this.http.get<Usuario>(url);
   }
 
 
