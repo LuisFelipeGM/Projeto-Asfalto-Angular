@@ -2,6 +2,7 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 import { UserService } from './user.service';
+import { Router } from '@angular/router';
 
 interface AuthReponse {
   token: string
@@ -16,7 +17,8 @@ export class AutenticacaoService {
 
   constructor(
     private http: HttpClient,
-    private userService: UserService
+    private userService: UserService,
+    private router: Router
     ) { }
 
 
@@ -28,8 +30,17 @@ export class AutenticacaoService {
         const authToken = response.body?.token || '';
         this.userService.salvarToken(authToken)
       })
-    )
-    ;
+    );
+  }
+
+  verificandoToken() {
+    if(this.userService.estaLogado()){
+      if(parseInt(this.userService.tempoExpiracao()) > new Date().getTime()) {
+        this.router.navigateByUrl('/perfil');
+      } else {
+        this.userService.logout();
+      }
+    }
   }
 
 }

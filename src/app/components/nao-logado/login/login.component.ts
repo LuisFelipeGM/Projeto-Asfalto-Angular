@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UsuarioService } from '../../../core/services/usuario.service';
 import { AutenticacaoService } from '../../../core/services/autenticacao.service';
+import { UserService } from '../../../core/services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -16,19 +17,25 @@ export class LoginComponent implements OnInit {
   senhaVisivel = false;
   iconeSenha = "./../../../../assets/images/visibility_ON.png";
   cadastroLogin = false;
+  sessaoExpirada = false;
 
   constructor(
     private router: Router,
     private formBuilder: FormBuilder,
-    private service: UsuarioService,
     private route: ActivatedRoute,
     private authService: AutenticacaoService
   ) { }
 
   ngOnInit(): void {
+
+    this.authService.verificandoToken();
+    
     this.route.queryParams.subscribe(params => {
       if(params['cadastroSucesso']){
         this.cadastroLogin = true;
+      }
+      if(params['sessaoExpirada']){
+        this.sessaoExpirada = true;
       }
     })
     this.formulario = this.formBuilder.group({
@@ -49,7 +56,7 @@ export class LoginComponent implements OnInit {
           if(err.status == 0){
             this.mensagemErro = 'Ocorreu um erro de comunicação com o servidor, tente novamente mais tarde!'
           } else {
-            this.mensagemErro = `Erro ao fazer login: ${err.error}`;
+            this.mensagemErro = `${err.error}`;
           }
         }
       })

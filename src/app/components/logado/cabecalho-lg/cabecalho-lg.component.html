@@ -11,7 +11,7 @@
       </div>
   
       <div class="menu__direita">
-          <button class="botao__login ff-inter desktop" > <img src="./../../../../assets/images/logout.png" alt="Logout" class="icone"> SAIR</button>
+          <button class="botao__login ff-inter desktop" (click)="logout()" > <img src="./../../../../assets/images/logout.png" alt="Logout" class="icone"> SAIR</button>
           <input type="checkbox" id="menu" class="container__botao mobile">
           <label for="menu" class="mobile">
               <img src="./../../../../assets/images/menu-hamburguer.png" alt="Menu Hamburguer" class="menu-hamburguer">
@@ -20,7 +20,7 @@
               <li><a class="cabecalho__menu__texto ff-inter mapa" >Mapa</a></li>
               <li><a class="cabecalho__menu__texto ff-inter ocorrencia" > Ocorrência </a></li>
               <li><a class="cabecalho__menu__texto ff-inter perfil" > Perfil </a></li>
-              <li><button class="botao__login ff-inter" > <img src="./../../../../assets/images/logout.png" alt="Logout" class="icone"> SAIR</button></li>
+              <li><button class="botao__login ff-inter" (click)="logout()"> <img src="./../../../../assets/images/logout.png" alt="Logout" class="icone"> SAIR</button></li>
           </ul>
       </div>
     </nav>
