@@ -25,7 +25,6 @@ export class PerfilUsuarioComponent implements OnInit {
   iconeSenhaNova = "./../../../../assets/images/visibility_ON.png";
 
   id: any;
-  token: string = '';
   usuarioUpdate!: UsuarioUpdate;
   senhaUpdate!: SenhaUpdate;
 
@@ -33,15 +32,13 @@ export class PerfilUsuarioComponent implements OnInit {
     private router: Router,
     private formBuilder: FormBuilder,
     private userService: UserService,
-    private usuarioService: UsuarioService,
-    private tokenService: TokenService
+    private usuarioService: UsuarioService
   ) { }
 
   ngOnInit(): void {
-    this.token = this.tokenService.retornarToken(); 
     this.userService.retornarUser().subscribe((usuario) => {
       this.id = usuario?.id;
-      this.usuarioService.buscarPorId(this.id, this.token).subscribe((usuario) => {
+      this.usuarioService.buscarPorId(this.id).subscribe((usuario) => {
         
         this.formularioSecao1.patchValue({
           nomeCompleto: usuario.nomeCompleto,
@@ -108,7 +105,7 @@ export class PerfilUsuarioComponent implements OnInit {
         email: this.formularioSecao1.value.email,
         tipoUsuario: "U"
       }
-      this.usuarioService.editar(this.id, this.usuarioUpdate, this.token).subscribe({
+      this.usuarioService.editar(this.id, this.usuarioUpdate).subscribe({
         next: () => {
           this.mensagemErroEditar = ''
           this.mensagemSucessoEditar = 'Edição realizada com sucesso!'
@@ -131,7 +128,7 @@ export class PerfilUsuarioComponent implements OnInit {
         senhaAntiga: this.formularioSecao2.value.senhaAtual,
         novaSenha: this.formularioSecao2.value.novaSenha,
       }
-      this.usuarioService.editarSenha(this.id, this.senhaUpdate, this.token).subscribe({
+      this.usuarioService.editarSenha(this.id, this.senhaUpdate).subscribe({
         next: (message) => {
           this.mensagemSucessoSenha = message.message;
           this.mensagemErroSenha = '';

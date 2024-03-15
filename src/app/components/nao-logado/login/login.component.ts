@@ -46,7 +46,11 @@ export class LoginComponent implements OnInit {
           this.router.navigateByUrl('/perfil')
         },
         error: (err) => {
-          this.mensagemErro = `Erro ao fazer login: ${err.error}`;
+          if(err.status == 0){
+            this.mensagemErro = 'Ocorreu um erro de comunicação com o servidor, tente novamente mais tarde!'
+          } else {
+            this.mensagemErro = `Erro ao fazer login: ${err.error}`;
+          }
         }
       })
     }
