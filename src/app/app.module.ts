@@ -16,7 +16,7 @@ import { GoogleMapsModule } from '@angular/google-maps';
 import { PageNotFoundComponent } from './components/nao-logado/page-not-found/page-not-found.component';
 import { PerfilUsuarioComponent } from './components/logado/perfil-usuario/perfil-usuario.component';
 import { CabecalhoLgComponent } from './components/logado/cabecalho-lg/cabecalho-lg.component';
-import { AutenticacaoInterceptor } from './components/interceptors/autenticacao.interceptor';
+import { AutenticacaoInterceptor } from './core/interceptors/autenticacao.interceptor';
 
 @NgModule({
   declarations: [

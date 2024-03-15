@@ -6,6 +6,7 @@ import { LoginComponent } from './components/nao-logado/login/login.component';
 import { MapaNlComponent } from './components/nao-logado/mapa-nl/mapa-nl.component';
 import { PageNotFoundComponent } from './components/nao-logado/page-not-found/page-not-found.component';
 import { PerfilUsuarioComponent } from './components/logado/perfil-usuario/perfil-usuario.component';
+import { AuthGuard } from './core/guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -31,7 +32,8 @@ const routes: Routes = [
   },
   {
     path: 'perfil',
-    component: PerfilUsuarioComponent
+    component: PerfilUsuarioComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: '**',

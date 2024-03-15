@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UserService } from '../../services/user.service';
-import { SenhaUpdate, Usuario, UsuarioUpdate } from '../../services/usuario';
-import { UsuarioService } from '../../services/usuario.service';
-import { TokenService } from '../../services/token.service';
+import { UserService } from '../../../core/services/user.service';
+import { SenhaUpdate, Usuario, UsuarioUpdate } from '../../../core/services/usuario';
+import { UsuarioService } from '../../../core/services/usuario.service';
 
 @Component({
   selector: 'app-perfil-usuario',

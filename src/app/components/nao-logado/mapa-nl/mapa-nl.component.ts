@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { OcorrenciaService } from '../../services/ocorrencia.service';
-import { Info, Ocorrencia } from '../../services/ocorrencia';
+import { OcorrenciaService } from '../../../core/services/ocorrencia.service';
+import { Info, Ocorrencia } from '../../../core/services/ocorrencia';
 import { MapInfoWindow, MapMarker } from '@angular/google-maps';
 
 @Component({
