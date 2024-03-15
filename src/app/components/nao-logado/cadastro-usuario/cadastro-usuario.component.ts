@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UsuarioService } from '../../services/usuario.service';
-import { Usuario } from '../../services/usuario';
+import { UsuarioService } from '../../../core/services/usuario.service';
+import { Usuario } from '../../../core/services/usuario';
 
 @Component({
   selector: 'app-cadastro-usuario',
