@@ -4,6 +4,9 @@
         Seu cadastro foi realizado com sucesso! 
         Por favor faça o login para entrar no sistema.
     </div>
+    <div class="mensagem__expirada-login" *ngIf="sessaoExpirada">
+        Sua sessão foi expirada! Faça o login novamente para voltar a utilizar o sistema.
+    </div>
     <form [formGroup]="formulario">
         <div class="mensagem_erro-api" *ngIf="mensagemErro">
             <p>{{ mensagemErro }}</p>

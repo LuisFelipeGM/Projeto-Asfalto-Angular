@@ -10,7 +10,7 @@ export class AuthGuard {
   constructor(private userService: UserService, private router: Router) {}
 
   canActivate(): boolean {
-    if(this.userService.estaLogado()){
+    if(this.userService.estaLogado() && (parseInt(this.userService.tempoExpiracao()) > new Date().getTime())){
         return true
     } else {
         this.router.navigate(['/login']);

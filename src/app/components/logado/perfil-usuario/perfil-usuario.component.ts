@@ -28,7 +28,6 @@ export class PerfilUsuarioComponent implements OnInit {
   senhaUpdate!: SenhaUpdate;
 
   constructor(
-    private router: Router,
     private formBuilder: FormBuilder,
     private userService: UserService,
     private usuarioService: UsuarioService
@@ -36,16 +35,20 @@ export class PerfilUsuarioComponent implements OnInit {
 
   ngOnInit(): void {
     this.userService.retornarUser().subscribe((usuario) => {
-      this.id = usuario?.id;
-      this.usuarioService.buscarPorId(this.id).subscribe((usuario) => {
-        
-        this.formularioSecao1.patchValue({
-          nomeCompleto: usuario.nomeCompleto,
-          cpf: usuario.cpf.trim(),
-          email: usuario.email
-        });
+      if(usuario != null){
 
-      })
+        this.id = usuario?.id;
+        this.usuarioService.buscarPorId(this.id).subscribe((usuario) => {
+            
+          this.formularioSecao1.patchValue({
+            nomeCompleto: usuario.nomeCompleto,
+            cpf: usuario.cpf.trim(),
+            email: usuario.email
+          });
+    
+        })
+      }
+
     })
     
     this.formularioSecao1 = this.formBuilder.group({
@@ -114,7 +117,7 @@ export class PerfilUsuarioComponent implements OnInit {
           if(erro.status == 0){
             this.mensagemErroEditar = 'Ocorreu um erro de comunicação com o servidor, tente novamente mais tarde!'
           } else {
-            this.mensagemErroEditar = `Erro ao salvar: ${erro.error[0]}`;
+            this.mensagemErroEditar = `${erro.error[0]}`;
           }
         }
       })

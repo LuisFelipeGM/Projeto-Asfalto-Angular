@@ -16,6 +16,16 @@
     font-size: 1.3rem;
 }
 
+.mensagem__expirada-login {
+    background-color: var(--vermelho);
+    padding: 2rem;
+    width: 45vw;
+    margin-bottom: 2rem;
+    border-radius: 2rem;
+    color: var(--branco);
+    font-size: 1.3rem;
+}
+
 .auth-usuario form {
     background: var(--cor-primaria);
     border: none;

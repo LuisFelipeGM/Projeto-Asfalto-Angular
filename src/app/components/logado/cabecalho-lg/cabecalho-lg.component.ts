@@ -1,5 +1,6 @@
 import { Component, ElementRef, Input, Renderer2, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from '../../../core/services/user.service';
 
 @Component({
   selector: 'app-cabecalho-lg',
@@ -13,7 +14,8 @@ export class CabecalhoLgComponent {
   constructor(
     private elementRef: ElementRef, 
     private renderer: Renderer2,
-    private router: Router
+    private router: Router,
+    private userService: UserService
   ) { }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -25,6 +27,11 @@ export class CabecalhoLgComponent {
     elementos.forEach((elemento: HTMLElement) => {
       this.renderer.addClass(elemento, 'ativo');
     });
+  }
+
+  logout() {
+    this.userService.logout();
+    this.router.navigate(['/home'])
   }
 
 }
