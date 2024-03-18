@@ -8,18 +8,22 @@
         Sua sessão foi expirada! Faça o login novamente para voltar a utilizar o sistema.
     </div>
     <form [formGroup]="formulario">
-        <div class="mensagem_erro-api" *ngIf="mensagemErro">
-            <p>{{ mensagemErro }}</p>
+        <div class="espaco__erro">
+            <div class="mensagem_erro-api" *ngIf="mensagemErro">
+                <p>{{ mensagemErro }}</p>
+            </div>
         </div>
         <div class="form__grupo">
             <label for="email">Email:</label>
             <input type="text" class="input__grande" id="email" formControlName="email" placeholder="Digite o email!" autocomplete="off">
-            <div class="mensagem__erro" *ngIf="formulario.get('email')?.errors?.['required'] && formulario.get('email')?.touched">
-                O Email é obrigatório!
-            </div>
-            <div class="mensagem__erro" 
-            *ngIf="(formulario.get('email')?.errors?.['email'] || formulario.get('email')?.errors?.['pattern']) && formulario.get('email')?.touched">
-                O Email está inválido!
+            <div class="espaco__erro">
+                <div class="mensagem__erro" *ngIf="formulario.get('email')?.errors?.['required'] && formulario.get('email')?.touched">
+                    O Email é obrigatório!
+                </div>
+                <div class="mensagem__erro" 
+                *ngIf="(formulario.get('email')?.errors?.['email'] || formulario.get('email')?.errors?.['pattern']) && formulario.get('email')?.touched">
+                    O Email está inválido!
+                </div>
             </div>
         </div>
 
@@ -31,11 +35,13 @@
                     <img src="{{ iconeSenha }}" alt="Mostrar Senha" class="icone__senha">
                 </button>
             </span>
-            <div class="mensagem__erro" *ngIf="formulario.get('senha')?.errors?.['required'] && formulario.get('senha')?.touched">
-                A senha é obrigatória!
-            </div>
-            <div class="mensagem__erro" *ngIf="formulario.get('senha')?.errors?.['minlength'] && formulario.get('senha')?.touched">
-                A senha tem no minímo 8 caractéres
+            <div class="espaco__erro">
+                <div class="mensagem__erro" *ngIf="formulario.get('senha')?.errors?.['required'] && formulario.get('senha')?.touched">
+                    A senha é obrigatória!
+                </div>
+                <div class="mensagem__erro" *ngIf="formulario.get('senha')?.errors?.['minlength'] && formulario.get('senha')?.touched">
+                    A senha tem no minímo 8 caractéres
+                </div>
             </div>
         </div>
 
