@@ -12,17 +12,19 @@
                 <label for="nomeCompleto">Nome Completo:</label>
                 <input type="text" class="input__grande" id="nomeCompleto" formControlName="nomeCompleto" 
                 placeholder="Digite o nome" autocomplete="off">
-                <div class="mensagem__erro" 
-                *ngIf="formularioSecao1.get('nomeCompleto')?.errors?.['required'] && formularioSecao1.get('nomeCompleto')?.touched">
-                    O Nome é obrigatório!
-                </div>
-                <div class="mensagem__erro" 
-                *ngIf="formularioSecao1.get('nomeCompleto')?.errors?.['minlength'] && formularioSecao1.get('nomeCompleto')?.touched">
-                    O Nome precisa ter no mínimo 3 caracteres!
-                </div>
-                <div class="mensagem__erro" 
-                *ngIf="formularioSecao1.get('nomeCompleto')?.errors?.['pattern'] && formularioSecao1.get('nomeCompleto')?.touched">
-                    O Nome tem caracteres inválidos
+                <div class="espaco__erro">
+                    <div class="mensagem__erro" 
+                    *ngIf="formularioSecao1.get('nomeCompleto')?.errors?.['required'] && formularioSecao1.get('nomeCompleto')?.touched">
+                        O Nome é obrigatório!
+                    </div>
+                    <div class="mensagem__erro" 
+                    *ngIf="formularioSecao1.get('nomeCompleto')?.errors?.['minlength'] && formularioSecao1.get('nomeCompleto')?.touched">
+                        O Nome precisa ter no mínimo 3 caracteres!
+                    </div>
+                    <div class="mensagem__erro" 
+                    *ngIf="formularioSecao1.get('nomeCompleto')?.errors?.['pattern'] && formularioSecao1.get('nomeCompleto')?.touched">
+                        O Nome tem caracteres inválidos
+                    </div>
                 </div>
             </div>
     
@@ -31,13 +33,15 @@
                 <label for="cpf">CPF:</label>
                 <input type="text" class="input__grande" id="cpf" formControlName="cpf" placeholder="000.000.000-00"
                 mask="000.000.000-00" [dropSpecialCharacters]="false" autocomplete="off">
-                <div class="mensagem__erro" 
-                *ngIf="formularioSecao1.get('cpf')?.errors?.['required'] && formularioSecao1.get('cpf')?.touched">
-                    O CPF é obrigatório!
-                </div>
-                <div class="mensagem__erro" 
-                *ngIf="(formularioSecao1.get('cpf')?.errors?.['minlength'] || formularioSecao1.get('cpf')?.errors?.['maxlength']) && formularioSecao1.get('cpf')?.touched">
-                    O CPF é inválido!
+                <div class="espaco__erro">
+                    <div class="mensagem__erro" 
+                    *ngIf="formularioSecao1.get('cpf')?.errors?.['required'] && formularioSecao1.get('cpf')?.touched">
+                        O CPF é obrigatório!
+                    </div>
+                    <div class="mensagem__erro" 
+                    *ngIf="(formularioSecao1.get('cpf')?.errors?.['minlength'] || formularioSecao1.get('cpf')?.errors?.['maxlength']) && formularioSecao1.get('cpf')?.touched">
+                        O CPF é inválido!
+                    </div>
                 </div>
             </div>
     
@@ -45,22 +49,25 @@
             <div class="form__grupo">
                 <label for="email">Email:</label>
                 <input type="text" class="input__grande" id="email" formControlName="email" placeholder="Digite o email" autocomplete="off">
-                <div class="mensagem__erro" *ngIf="formularioSecao1.get('email')?.errors?.['required'] && formularioSecao1.get('email')?.touched">
-                    O Email é obrigatório!
-                </div>
-                <div class="mensagem__erro" 
-                *ngIf="(formularioSecao1.get('email')?.errors?.['email'] || formularioSecao1.get('email')?.errors?.['pattern']) && formularioSecao1.get('email')?.touched">
-                    O Email é inválido!
+                <div class="espaco__erro">
+                    <div class="mensagem__erro" *ngIf="formularioSecao1.get('email')?.errors?.['required'] && formularioSecao1.get('email')?.touched">
+                        O Email é obrigatório!
+                    </div>
+                    <div class="mensagem__erro" 
+                    *ngIf="(formularioSecao1.get('email')?.errors?.['email'] || formularioSecao1.get('email')?.errors?.['pattern']) && formularioSecao1.get('email')?.touched">
+                        O Email é inválido!
+                    </div>
                 </div>
     
             </div>
-
-            <div class="mensagem_erro-api " *ngIf="mensagemErroEditar">
-                {{ mensagemErroEditar }}
-            </div>
-
-            <div class="mensagem_sucesso-api " *ngIf="mensagemSucessoEditar">
-                {{ mensagemSucessoEditar }}
+            <div class="espaco__erro">
+                <div class="mensagem_erro-api " *ngIf="mensagemErroEditar">
+                    {{ mensagemErroEditar }}
+                </div>
+    
+                <div class="mensagem_sucesso-api " *ngIf="mensagemSucessoEditar">
+                    {{ mensagemSucessoEditar }}
+                </div>
             </div>
 
 
@@ -84,12 +91,13 @@
                     <img src="{{ iconeSenhaAtual }}" alt="Mostrar Senha" class="icone__senha">
                 </button>
             </span>
-
-            <div class="mensagem__erro" *ngIf="formularioSecao2.get('senhaAtual')?.errors?.['required'] && formularioSecao2.get('senhaAtual')?.touched">
-                A senha atual é obrigatória!
-            </div>
-            <div class="mensagem__erro" *ngIf="formularioSecao2.get('senhaAtual')?.errors?.['minlength'] && formularioSecao2.get('senhaAtual')?.touched">
-                A senha atual deve ter no minímo 8 caractéres
+            <div class="espaco__erro">
+                <div class="mensagem__erro" *ngIf="formularioSecao2.get('senhaAtual')?.errors?.['required'] && formularioSecao2.get('senhaAtual')?.touched">
+                    A senha atual é obrigatória!
+                </div>
+                <div class="mensagem__erro" *ngIf="formularioSecao2.get('senhaAtual')?.errors?.['minlength'] && formularioSecao2.get('senhaAtual')?.touched">
+                    A senha atual deve ter no minímo 8 caractéres
+                </div>
             </div>
         </div>
 
@@ -102,21 +110,23 @@
                     <img src="{{ iconeSenhaNova }}" alt="Mostrar Senha" class="icone__senha">
                 </button>
             </span>
-
-            <div class="mensagem__erro" *ngIf="formularioSecao2.get('novaSenha')?.errors?.['required'] && formularioSecao2.get('novaSenha')?.touched">
-                A nova senha é obrigatória!
-            </div>
-            <div class="mensagem__erro" *ngIf="formularioSecao2.get('novaSenha')?.errors?.['minlength'] && formularioSecao2.get('novaSenha')?.touched">
-                A nova senha deve ter no minímo 8 caractéres
+            <div class="espaco__erro">
+                <div class="mensagem__erro" *ngIf="formularioSecao2.get('novaSenha')?.errors?.['required'] && formularioSecao2.get('novaSenha')?.touched">
+                    A nova senha é obrigatória!
+                </div>
+                <div class="mensagem__erro" *ngIf="formularioSecao2.get('novaSenha')?.errors?.['minlength'] && formularioSecao2.get('novaSenha')?.touched">
+                    A nova senha deve ter no minímo 8 caractéres
+                </div>
             </div>
         </div>
-
-        <div class="mensagem_erro-api " *ngIf="mensagemErroSenha">
-            {{ mensagemErroSenha }}
-        </div>
-
-        <div class="mensagem_sucesso-api " *ngIf="mensagemSucessoSenha">
-            {{ mensagemSucessoSenha }}
+        <div class="espaco__erro">
+            <div class="mensagem_erro-api " *ngIf="mensagemErroSenha">
+                {{ mensagemErroSenha }}
+            </div>
+    
+            <div class="mensagem_sucesso-api " *ngIf="mensagemSucessoSenha">
+                {{ mensagemSucessoSenha }}
+            </div>
         </div>
     
             <div class="acoes">

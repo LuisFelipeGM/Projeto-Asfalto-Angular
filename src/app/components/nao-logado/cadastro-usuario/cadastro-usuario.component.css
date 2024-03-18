@@ -71,6 +71,10 @@
     border-radius: 1rem;
 }
 
+.espaco__erro {
+    height: 1rem;
+}
+
 .mensagem__erro {
     font-size: 1rem;
     margin-left: 1rem;
